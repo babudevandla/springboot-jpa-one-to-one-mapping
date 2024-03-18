@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void delete(User user) {
 		// TODO Auto-generated method stub
-		userRepository.save(user);
+		userRepository.delete(user);
 	}
 
 	@Override

@@ -29,12 +29,12 @@ public class UserController {
 	private UserService userService;
 
 	@GetMapping
-	public List<User> getInstructors() {
+	public List<User> getUsers() {
 		return userService.findAll();
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<User> getInstructorById(@PathVariable(value = "id") Long id)
+	public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long id)
 			throws ResourceNotFoundException {
 		User user = userService.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("User not found :: " + id));
@@ -43,7 +43,6 @@ public class UserController {
 
 	@PostMapping
 	public User createUser(@Valid @RequestBody User user) {
-		
 		return userService.save(user);
 	}
 
@@ -59,10 +58,10 @@ public class UserController {
 
 	@DeleteMapping("/{id}")
 	public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long id) throws ResourceNotFoundException {
-		User instructor = userService.findById(id)
+		User user = userService.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("User not found :: " + id));
 
-		userService.delete(instructor);
+		userService.delete(user);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
