@@ -1,0 +1,13 @@
+{
+    "name":"Example",
+    "email":"example@gmail.com",
+    "gender":"Male",
+    "address":{
+        "houseNo":"#1234",
+        "city":"Hyd",
+        "state":"TS",
+        "country":"INDIA"
+
+    }
+
+}
